@@ -1,0 +1,10 @@
+:root {
+  /* Font weight range 300-700 */
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.8rem; /* default font size */
+  font-weight: 500; /* default weight */
+}
