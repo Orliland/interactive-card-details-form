@@ -2,6 +2,12 @@
   /* Font weight range 300-700 */
   font-family: "Space Grotesk", sans-serif;
   font-size: 62.5%;
+
+  --white: hsl(0, 0%, 100%);
+  --deep-violet: hsl(278, 68%, 11%);
+  --deep-violet-transparent: hsl(279, 34%, 27%);
+
+  --heading-l: 500 1.8rem "Space Grotesk", sans-serif;
 }
 
 body {
