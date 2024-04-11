@@ -1,0 +1,44 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.label__text {
+  color: var(--deep-violet);
+
+  font: var(--body);
+  letter-spacing: 0.2rem;
+}
+
+.input {
+  padding: 1rem 1.6rem;
+  border: 0.1rem solid var(--light-grey);
+  border-radius: 0.8rem;
+
+  color: var(--deep-violet);
+
+  font: var(--heading-l);
+}
+
+.input::placeholder {
+  color: var(--deep-violet);
+
+  font: var(--heading-l);
+
+  opacity: 0.25;
+}
+
+/* Añade la gradiente al border */
+.input:focus {
+  outline: none;
+  background: linear-gradient(white, white) padding-box,
+    var(--border-gradient) border-box;
+  border-radius: 0.8rem;
+  border: 0.1rem solid transparent;
+}
+
+/* TODO: añadir estilos en caso de un error en el campo */
+.input:invalid {
+  border: 0.1rem solid var(--red);
+}
