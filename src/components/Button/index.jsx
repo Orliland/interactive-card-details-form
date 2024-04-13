@@ -1,8 +1,8 @@
 import "./button.css";
 
-function Button() {
+function Button({ children = "Continue" }) {
   // TODO: Add an onClick event to the button
-  return <button className="button">Continue</button>;
+  return <button className="button">{children}</button>;
 }
 
 export default Button;
