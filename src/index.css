@@ -6,8 +6,16 @@
   --white: hsl(0, 0%, 100%);
   --deep-violet: hsl(278, 68%, 11%);
   --deep-violet-transparent: hsl(279, 34%, 27%);
+  --light-grey: hsl(278, 3%, 87%);
+  --red: hsl(0, 100%, 66%);
+  --border-gradient: linear-gradient(
+    to right,
+    hsl(249, 99%, 64%) 0%,
+    hsl(278, 94%, 30%) 100%
+  );
 
   --heading-l: 500 1.8rem "Space Grotesk", sans-serif;
+  --body: 500 1.2rem "Space Grotesk", sans-serif;
 }
 
 body {
