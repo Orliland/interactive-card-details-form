@@ -9,6 +9,7 @@
   margin-top: 0.8rem;
 }
 
+/* TODO: solucionar problema de tamaños en celulares */
 .form__group {
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
