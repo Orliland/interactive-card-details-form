@@ -4,6 +4,10 @@
   gap: 0.9rem;
 }
 
+.label__blank {
+  align-self: end;
+}
+
 .label__text {
   color: var(--deep-violet);
 
@@ -38,7 +42,4 @@
   border: 0.1rem solid transparent;
 }
 
-/* TODO: añadir estilos en caso de un error en el campo */
-.input:invalid {
-  border: 0.1rem solid var(--red);
-}
+/* Añadir clase que marque que el elemento tiene un error */
