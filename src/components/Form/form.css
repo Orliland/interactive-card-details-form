@@ -9,13 +9,13 @@
   margin-top: 0.8rem;
 }
 
-/* TODO: solucionar problema de tamaños en celulares */
 .form__group {
   display: grid;
-  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
 }
 
-.form__group label:nth-child(even) {
-  margin-left: 0.8rem;
-  margin-right: 1.1rem;
+.form__date {
+  display: flex;
+  gap: 0.8rem;
 }
