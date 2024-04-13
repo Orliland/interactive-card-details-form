@@ -28,40 +28,76 @@ const inputTypes = {
   },
 };
 
-function InpputElement({ type, placeholder }) {
-  let { inputType, min, max } = inputTypes[type];
-  if (inputType === "number") {
-    return (
-      <input
-        type={inputType}
-        className="input"
-        placeholder={placeholder}
-        min={min}
-        max={max}
-        required
-      />
-    );
-  } else if (inputType === "text") {
-    return (
-      <input
-        type={inputType}
-        className="input"
-        placeholder={placeholder}
-        minLength={min}
-        maxLength={max}
-        required
-      />
-    );
-  }
-}
-
-function Input({ label = false, placeholder, type }) {
+function Label({ label, children }) {
   return (
-    <label className={label ? "label" : "label label__blank"}>
+    <label className="label">
       <span className="label__text">{label}</span>
-      <InpputElement type={type} placeholder={placeholder} />
+      {children}
     </label>
   );
 }
 
-export default Input;
+export function CardholderInput() {
+  return (
+    <Label label="CARDHOLDER NAME">
+      <input
+        type="text"
+        className="input"
+        placeholder="e.g. Jane Appleseed"
+        minLength={3}
+        maxLength={30}
+      />
+    </Label>
+  );
+}
+
+export function CardNumberInput() {
+  return (
+    <Label label="CARD NUMBER">
+      <input
+        type="number"
+        className="input"
+        placeholder="e.g. 1234 5678 9123 0000"
+        min={1000000000000000}
+        max={9999999999999999}
+      />
+    </Label>
+  );
+}
+
+export function CardDateInput() {
+  return (
+    <Label label="Exp. Date (MM/YY)">
+      <div className="form__date">
+        <input
+          type="number"
+          className="input"
+          placeholder="MM"
+          min={1}
+          max={12}
+        />
+        <input
+          type="number"
+          className="input"
+          placeholder="YY"
+          min={21}
+          max={99}
+        />
+      </div>
+    </Label>
+  );
+}
+
+export function CvcInput() {
+  return (
+    <Label label="CVC">
+      <input
+        type="number"
+        className="input"
+        placeholder="e.g. 123"
+        min={100}
+        max={999}
+      />
+    </Label>
+  );
+}
