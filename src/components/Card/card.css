@@ -49,7 +49,7 @@
     * Se elimina el padding interior de la tarjeta respecto a los números
     * Se indica el porcentaje que tendrá respecto al viewport para que sea responsive
   */
-  font-size: clamp(8px, calc((((100vw - 16px) * 1) - 40px) * 0.09), 34px);
+  font-size: clamp(8px, calc((((100vw - 16px) * 1) - 40px) * 0.09), 5rem);
   letter-spacing: 5.5%;
 }
 
