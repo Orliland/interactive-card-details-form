@@ -1,12 +1,13 @@
 import "./App.css";
 
 import Form from "./components/Form";
-import { FrontCard } from "./components/Card";
+import { FrontCard, BackCard } from "./components/Card";
 
 function App() {
   return (
     <>
       <FrontCard />
+      <BackCard />
       <Form />
     </>
   );

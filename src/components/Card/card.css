@@ -75,3 +75,16 @@
   font: var(--body-l);
   letter-spacing: 0.2rem;
 }
+
+.card__cvc {
+  grid-row: 1/1;
+  grid-column: 1/1;
+  align-self: center;
+  justify-self: end;
+  margin-right: 13.15%;
+
+  color: var(--white);
+
+  font-size: var(--body-l);
+  letter-spacing: 10%;
+}
