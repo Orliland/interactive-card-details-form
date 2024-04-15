@@ -1,4 +1,6 @@
 .form {
+  max-width: 38.1rem;
+
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -18,4 +20,13 @@
 .form__date {
   display: flex;
   gap: 0.8rem;
+}
+
+@media (min-width: 550px) {
+  .form {
+    gap: 2.6rem;
+  }
+  .form .button {
+    margin-top: 1.4rem;
+  }
 }
