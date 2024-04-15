@@ -6,7 +6,7 @@ import Modal from "./components/Modal";
 import { FrontCard, BackCard } from "./components/Card";
 
 function App() {
-  const [formValidated, setFormValidated] = useState(true);
+  const [formValidated, setFormValidated] = useState(false);
 
   return (
     <main className="main">
