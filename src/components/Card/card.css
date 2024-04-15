@@ -105,3 +105,12 @@
   font: var(--body-s);
   letter-spacing: 0.129rem;
 }
+
+@media (min-width: 550px) {
+  .card__holder,
+  .card__date,
+  .card__cvc {
+    font: var(--body-l);
+    letter-spacing: 0.2rem;
+  }
+}
