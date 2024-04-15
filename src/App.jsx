@@ -1,9 +1,13 @@
+import { useState } from "react";
 import "./App.css";
 
 import Form from "./components/Form";
+import Modal from "./components/Modal";
 import { FrontCard, BackCard } from "./components/Card";
 
 function App() {
+  const [formValidated, setFormValidated] = useState(true);
+
   return (
     <main className="main">
       <section className="section section--cards">
@@ -13,7 +17,7 @@ function App() {
         </div>
       </section>
       <section className="section section--body">
-        <Form />
+        {formValidated ? <Modal /> : <Form />}
       </section>
     </main>
   );
