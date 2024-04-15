@@ -5,11 +5,17 @@ import { FrontCard, BackCard } from "./components/Card";
 
 function App() {
   return (
-    <>
-      <FrontCard />
-      <BackCard />
-      <Form />
-    </>
+    <main className="main">
+      <section className="section section--cards">
+        <div className="wrapper">
+          <FrontCard />
+          <BackCard />
+        </div>
+      </section>
+      <section className="section section--body">
+        <Form />
+      </section>
+    </main>
   );
 }
 

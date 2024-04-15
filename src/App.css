@@ -1,0 +1,61 @@
+.section--cards {
+  padding: 3.2rem 1.6rem 3.2rem;
+
+  background-image: url("./assets/bg-main-mobile.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+/* Estilos para evitar que la section no tome el ancho completo */
+@media (max-width: 1439px) {
+  .section--body {
+    margin: 0 auto;
+
+    padding: 1.6rem 2.4rem 4.5rem;
+  }
+}
+
+@media (min-width: 550px) {
+  .section--cards {
+    background-size: cover;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3.7rem;
+    max-width: 54.1rem;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1440px) {
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+  }
+
+  .section {
+    display: grid;
+    align-items: center;
+    padding: 0;
+  }
+
+  .section--cards {
+    padding-right: 6.4rem;
+    justify-content: end;
+    background-image: url("./assets/bg-main-desktop.png");
+    background-size: contain;
+  }
+
+  .section--body {
+    padding-left: 6.4rem;
+  }
+}
