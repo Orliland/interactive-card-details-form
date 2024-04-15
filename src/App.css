@@ -1,0 +1,14 @@
+.section--cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  padding: 3.2rem 1.6rem 0;
+
+  background-image: url("./assets/bg-main-mobile.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.section--body {
+  padding: 4.8rem 2.4rem 4.5rem;
+}

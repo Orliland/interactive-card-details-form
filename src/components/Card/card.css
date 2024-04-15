@@ -1,6 +1,6 @@
 .card {
   /* TODO: adaptar ancho conforme al diseño */
-
+  width: 83.38%;
   height: fit-content;
   border-radius: 1rem;
   overflow: hidden;
@@ -25,6 +25,13 @@
 }
 
 /* Estilos para Card Front */
+.card--front {
+  z-index: 2;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  margin-top: 26%;
+}
+
 .card--front .card__data {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto 1fr auto 12% auto;
@@ -44,12 +51,16 @@
   /* 
     Código para hacer responsive los números de la tarjeta, se utiliza similar
     que con los viewports, se siguen los siguientes pasos:
-    * Se elimina el margin al viewport respecto al padding
+    * Se elimina el padding de la tarjeta respecto a su contenedor padre
     * Se obtiene el tamaño de la tarjeta respecto a la suma anterior
-    * Se elimina el padding interior de la tarjeta respecto a los números
+    * Se elimina el padding de la clase card__data
     * Se indica el porcentaje que tendrá respecto al viewport para que sea responsive
   */
-  font-size: clamp(8px, calc((((100vw - 16px) * 1) - 40px) * 0.09), 5rem);
+  font-size: clamp(
+    8px,
+    calc((((100vw - 3.2rem) * 0.8338) - 4rem) * 0.09),
+    5rem
+  );
   letter-spacing: 5.5%;
 }
 
@@ -60,8 +71,8 @@
 
   color: var(--white);
 
-  font: var(--body-l);
-  letter-spacing: 0.2rem;
+  font: var(--body-s);
+  letter-spacing: 0.129rem;
 }
 
 .card__date {
@@ -72,8 +83,14 @@
 
   color: var(--white);
 
-  font: var(--body-l);
-  letter-spacing: 0.2rem;
+  font: var(--body-s);
+  letter-spacing: 0.129rem;
+}
+
+.card--back {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  justify-self: end;
 }
 
 .card__cvc {
@@ -85,6 +102,6 @@
 
   color: var(--white);
 
-  font-size: var(--body-l);
-  letter-spacing: 10%;
+  font: var(--body-s);
+  letter-spacing: 0.129rem;
 }
