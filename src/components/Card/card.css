@@ -59,7 +59,7 @@
   font-size: clamp(
     8px,
     calc((((100vw - 3.2rem) * 0.8338) - 4rem) * 0.09),
-    5rem
+    3.7rem
   );
   letter-spacing: 5.5%;
 }

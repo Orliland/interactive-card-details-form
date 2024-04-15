@@ -7,8 +7,10 @@ function App() {
   return (
     <main className="main">
       <section className="section section--cards">
-        <FrontCard />
-        <BackCard />
+        <div className="wrapper">
+          <FrontCard />
+          <BackCard />
+        </div>
       </section>
       <section className="section section--body">
         <Form />
