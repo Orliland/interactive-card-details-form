@@ -8,6 +8,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  box-shadow: var(--card-shadow);
 }
 
 .card__bg {
@@ -107,10 +108,29 @@
 }
 
 @media (min-width: 550px) {
+  .card--front {
+    margin-top: 0;
+  }
+  .card--back {
+    align-self: flex-end;
+  }
+
+  .card__data {
+    padding: 2.8rem 3.2rem 3.2rem;
+  }
+
   .card__holder,
   .card__date,
   .card__cvc {
     font: var(--body-l);
     letter-spacing: 0.2rem;
+  }
+
+  .card__number {
+    font-size: clamp(
+      8px,
+      calc((((100vw - 3.2rem) * 0.8338) - 6.4rem) * 0.09),
+      2.78rem
+    );
   }
 }

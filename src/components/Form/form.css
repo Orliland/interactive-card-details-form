@@ -1,4 +1,5 @@
 .form {
+  margin: 0 auto;
   max-width: 38.1rem;
 
   display: flex;
@@ -28,5 +29,11 @@
   }
   .form .button {
     margin-top: 1.4rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .form {
+    margin: 0;
   }
 }
