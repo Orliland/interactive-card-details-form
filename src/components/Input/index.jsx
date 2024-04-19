@@ -1,33 +1,5 @@
 import "./input.css";
 
-const inputTypes = {
-  name: {
-    inputType: "text",
-    min: 3,
-    max: 30,
-  },
-  card: {
-    inputType: "number",
-    min: 1000000000000000,
-    max: 9999999999999999,
-  },
-  month: {
-    inputType: "number",
-    min: 1,
-    max: 12,
-  },
-  year: {
-    inputType: "number",
-    min: 21,
-    max: 99,
-  },
-  cvc: {
-    inputType: "number",
-    min: 100,
-    max: 999,
-  },
-};
-
 function Label({ label, children }) {
   return (
     <label className="label">
@@ -37,7 +9,7 @@ function Label({ label, children }) {
   );
 }
 
-export function CardholderInput() {
+export function CardholderInput({ value, onChange }) {
   return (
     <Label label="CARDHOLDER NAME">
       <input
@@ -46,26 +18,29 @@ export function CardholderInput() {
         placeholder="e.g. Jane Appleseed"
         minLength={3}
         maxLength={30}
+        value={value}
+        onChange={(e) => onChange(e)}
       />
     </Label>
   );
 }
 
-export function CardNumberInput() {
+export function CardNumberInput({ value, onChange }) {
   return (
     <Label label="CARD NUMBER">
       <input
-        type="number"
+        type="text"
         className="input"
         placeholder="e.g. 1234 5678 9123 0000"
-        min={1000000000000000}
-        max={9999999999999999}
+        maxLength={23}
+        value={value}
+        onChange={(e) => onChange(e)}
       />
     </Label>
   );
 }
 
-export function CardDateInput() {
+export function CardDateInput({ value }) {
   return (
     <Label label="Exp. Date (MM/YY)">
       <div className="form__date">
@@ -75,6 +50,7 @@ export function CardDateInput() {
           placeholder="MM"
           min={1}
           max={12}
+          value={value.cardMonth}
         />
         <input
           type="number"
@@ -82,13 +58,14 @@ export function CardDateInput() {
           placeholder="YY"
           min={21}
           max={99}
+          value={value.cardYear}
         />
       </div>
     </Label>
   );
 }
 
-export function CvcInput() {
+export function CvcInput({ value }) {
   return (
     <Label label="CVC">
       <input
@@ -97,6 +74,7 @@ export function CvcInput() {
         placeholder="e.g. 123"
         min={100}
         max={999}
+        value={value}
       />
     </Label>
   );
