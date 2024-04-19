@@ -13,11 +13,11 @@ import {
 function formatCardNumber([...value]) {
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
   let formatedNumber = "";
-  let counter = 0;
+  let counter = -1;
   value.map((item, index) => {
     if (item in numbers) {
       if (counter === 3) {
-        formatedNumber += item + " ";
+        formatedNumber += " " + item;
         counter = 0;
       } else {
         formatedNumber += item;
@@ -31,7 +31,7 @@ function formatCardNumber([...value]) {
 function Form() {
   const [formData, setFormData] = useState({
     cardHolder: "",
-    cardNumber: "",
+    cardNumber: ["", null],
     cardMonth: "",
     cardYear: "",
     cardCvc: "",
@@ -42,12 +42,12 @@ function Form() {
   };
 
   const handleCardNumberChange = (e) => {
-    // console.log(number(Number(e.target.value)).isPotentiallyValid);
-    // console.log(formatCardNumber("1234567891234567"));
     const removeSpaces = e.target.value.replace(/\s/g, "");
 
+    const isValid = number(Number(Number(removeSpaces))).isPotentiallyValid;
+
     const formatedNumber = formatCardNumber(removeSpaces);
-    setFormData({ ...formData, cardNumber: formatedNumber });
+    setFormData({ ...formData, cardNumber: [formatedNumber, isValid] });
   };
 
   return (

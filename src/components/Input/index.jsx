@@ -26,6 +26,9 @@ export function CardholderInput({ value, onChange }) {
 }
 
 export function CardNumberInput({ value, onChange }) {
+  const LabelAlert = () => {
+    return <span className="label__alert">Wrong format, invalid number</span>;
+  };
   return (
     <Label label="CARD NUMBER">
       <input
@@ -33,9 +36,10 @@ export function CardNumberInput({ value, onChange }) {
         className="input"
         placeholder="e.g. 1234 5678 9123 0000"
         maxLength={23}
-        value={value}
+        value={value[0]}
         onChange={(e) => onChange(e)}
       />
+      {value[1] === false && <LabelAlert />}
     </Label>
   );
 }
