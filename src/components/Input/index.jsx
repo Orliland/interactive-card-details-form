@@ -69,16 +69,16 @@ export function CardDateInput({ value }) {
   );
 }
 
-export function CvcInput({ value }) {
+export function CvcInput({ value, onChange }) {
   return (
     <Label label="CVC">
       <input
-        type="number"
+        type="text"
         className="input"
         placeholder="e.g. 123"
-        min={100}
-        max={999}
+        maxLength={3}
         value={value}
+        onChange={(e) => onChange(e)}
       />
     </Label>
   );

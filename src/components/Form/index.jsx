@@ -10,8 +10,9 @@ import {
   CvcInput,
 } from "../Input";
 
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
 function formatCardNumber([...value]) {
-  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
   let formatedNumber = "";
   let counter = -1;
   value.map((item, index) => {
@@ -23,6 +24,16 @@ function formatCardNumber([...value]) {
         formatedNumber += item;
         counter++;
       }
+    }
+  });
+  return formatedNumber;
+}
+
+function removeLetters([...value]) {
+  let formatedNumber = "";
+  value.map((item) => {
+    if (item in numbers) {
+      formatedNumber += item;
     }
   });
   return formatedNumber;
@@ -50,6 +61,10 @@ function Form() {
     setFormData({ ...formData, cardNumber: [formatedNumber, isValid] });
   };
 
+  const handleCardCvcChange = (e) => {
+    setFormData({ ...formData, cardCvc: removeLetters(e.target.value) });
+  };
+
   return (
     <form className="form">
       <CardholderInput
@@ -62,7 +77,7 @@ function Form() {
       />
       <div className="form__group">
         <CardDateInput value={formData} />
-        <CvcInput value={formData.cardCvc} />
+        <CvcInput value={formData.cardCvc} onChange={handleCardCvcChange} />
       </div>
 
       <Button>Confirm</Button>
