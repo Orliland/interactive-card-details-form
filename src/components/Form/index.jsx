@@ -117,7 +117,11 @@ function Form({ setFormValidated }) {
 
     // Validar que el número de la tarjeta sea correcto
     const removeSpaces = formData.cardNumber[0].replace(/\s/g, "");
-    const isValid = number(Number(removeSpaces)).isPotentiallyValid;
+    const isValid = number(Number(removeSpaces)).isValid;
+    if (isValid === false) {
+      cardData.cardNumber = [formData.cardNumber[0], false];
+      formValidated = false;
+    }
 
     // Validar que la fecha de vencimiento no se encuentre en blanco
     // Validar que la fecha de vencimiento sea mayor que la actual
