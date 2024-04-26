@@ -37,7 +37,7 @@ export function CardNumberInput({ value, onChange }) {
         type="text"
         className="input"
         placeholder="e.g. 1234 5678 9123 0000"
-        maxLength={23}
+        maxLength={19}
         value={value[0]}
         onChange={(e) => onChange(e)}
       />
