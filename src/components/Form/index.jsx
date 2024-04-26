@@ -39,6 +39,17 @@ function removeLetters([...value]) {
   return formatedNumber;
 }
 
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ".split("");
+function removeNotLetters([...value]) {
+  let formatedName = "";
+  value.map((item) => {
+    if (letters.includes(item)) {
+      formatedName += item;
+    }
+  });
+  return formatedName;
+}
+
 function Form() {
   const [formData, setFormData] = useState({
     cardHolder: "",
@@ -49,7 +60,10 @@ function Form() {
   });
 
   const handleCardHolderChange = (e) => {
-    setFormData({ ...formData, cardHolder: e.target.value });
+    setFormData({
+      ...formData,
+      cardHolder: removeNotLetters(e.target.value.toUpperCase()),
+    });
   };
 
   const handleCardNumberChange = (e) => {
@@ -76,7 +90,7 @@ function Form() {
         onChange={handleCardNumberChange}
       />
       <div className="form__group">
-        <CardDateInput value={formData} />
+        {/* <CardDateInput value={formData} /> */}
         <CvcInput value={formData.cardCvc} onChange={handleCardCvcChange} />
       </div>
 
