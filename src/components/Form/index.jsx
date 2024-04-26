@@ -51,18 +51,27 @@ function removeNotLetters([...value]) {
 }
 
 function Form() {
+  // TODO: Agregar indice al acceder a los valores de cada estado
+  // TODO: agregar función que active o desactive el true o false
+  // TODO: en caso de que sea false, mostrar un mensaje de error
   const [formData, setFormData] = useState({
-    cardHolder: "",
+    cardHolder: ["", null],
     cardNumber: ["", null],
-    cardMonth: "MM",
-    cardYear: "YY",
-    cardCvc: "",
+    // TODO: señalizar cual dato falta en caso de aun no haber sido completado
+    cardMonth: ["MM", null], //falta
+    cardYear: ["YY", null], //falta
+    cardCvc: ["", null],
   });
 
   const handleCardHolderChange = (e) => {
+    const cardHolder = removeNotLetters(e.target.value.toUpperCase());
+    let nameValidate = false;
+    if (cardHolder.length > 0) {
+      nameValidate = true;
+    }
     setFormData({
       ...formData,
-      cardHolder: removeNotLetters(e.target.value.toUpperCase()),
+      cardHolder: [cardHolder, nameValidate],
     });
   };
 
@@ -76,19 +85,30 @@ function Form() {
   };
 
   const handleCardCvcChange = (e) => {
-    setFormData({ ...formData, cardCvc: removeLetters(e.target.value) });
+    setFormData({
+      ...formData,
+      cardCvc: [removeLetters(e.target.value), true],
+    });
   };
 
   const handleOnSelectMonth = (e) => {
-    setFormData({ ...formData, cardMonth: e.target.value });
+    setFormData({ ...formData, cardMonth: [e.target.value, true] });
   };
 
   const handleOnSelectYear = (e) => {
-    setFormData({ ...formData, cardYear: e.target.value });
+    setFormData({ ...formData, cardYear: [e.target.value, true] });
   };
 
+  const handleSubmit = () => {};
+
   return (
-    <form className="form">
+    <form
+      className="form"
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit();
+      }}
+    >
       <CardholderInput
         value={formData.cardHolder}
         onChange={handleCardHolderChange}

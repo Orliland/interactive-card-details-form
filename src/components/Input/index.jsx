@@ -9,6 +9,10 @@ function Label({ label, children }) {
   );
 }
 
+function LabelAlert({ children }) {
+  return <span className="label__alert">{children}</span>;
+}
+
 export function CardholderInput({ value, onChange }) {
   return (
     <Label label="CARDHOLDER NAME">
@@ -18,17 +22,15 @@ export function CardholderInput({ value, onChange }) {
         placeholder="e.g. Jane Appleseed"
         minLength={3}
         maxLength={30}
-        value={value}
+        value={value[0]}
         onChange={(e) => onChange(e)}
       />
+      {value[1] === false && <LabelAlert>Can’t be blank</LabelAlert>}
     </Label>
   );
 }
 
 export function CardNumberInput({ value, onChange }) {
-  const LabelAlert = () => {
-    return <span className="label__alert">Wrong format, invalid number</span>;
-  };
   return (
     <Label label="CARD NUMBER">
       <input
@@ -39,7 +41,9 @@ export function CardNumberInput({ value, onChange }) {
         value={value[0]}
         onChange={(e) => onChange(e)}
       />
-      {value[1] === false && <LabelAlert />}
+      {value[1] === false && (
+        <LabelAlert>Wrong format, invalid number</LabelAlert>
+      )}
     </Label>
   );
 }
@@ -52,7 +56,7 @@ export function CardDateInput({ value, onSelectMonth, onSelectYear }) {
           className={
             value.cardMonth === "MM" ? "input input--placeholder" : "input"
           }
-          defaultValue={value.cardMonth}
+          defaultValue={value.cardMonth[0]}
           onChange={(e) => onSelectMonth(e)}
         >
           <option value="MM" disabled>
@@ -76,7 +80,7 @@ export function CardDateInput({ value, onSelectMonth, onSelectYear }) {
           className={
             value.cardYear === "YY" ? "input input--placeholder" : "input"
           }
-          defaultValue={value.cardYear}
+          defaultValue={value.cardYear[0]}
           onChange={(e) => onSelectYear(e)}
         >
           <option value="YY" disabled>
@@ -96,6 +100,11 @@ export function CardDateInput({ value, onSelectMonth, onSelectYear }) {
           <option value={"35"}>35</option>
         </select>
       </div>
+      {value.cardMonth[1] === false || value.cardYear[1] === false ? (
+        <LabelAlert>Can’t be blank</LabelAlert>
+      ) : (
+        ""
+      )}
     </Label>
   );
 }
@@ -108,9 +117,10 @@ export function CvcInput({ value, onChange }) {
         className="input"
         placeholder="e.g. 123"
         maxLength={3}
-        value={value}
+        value={value[0]}
         onChange={(e) => onChange(e)}
       />
+      {value[1] === false && <LabelAlert>Can’t be blank</LabelAlert>}
     </Label>
   );
 }
