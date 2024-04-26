@@ -78,7 +78,7 @@ function Form({ setFormValidated }) {
   const handleCardNumberChange = (e) => {
     const removeSpaces = e.target.value.replace(/\s/g, "");
 
-    const isValid = number(Number(Number(removeSpaces))).isPotentiallyValid;
+    const isValid = number(Number(removeSpaces)).isPotentiallyValid;
 
     const formatedNumber = formatCardNumber(removeSpaces);
     setFormData({ ...formData, cardNumber: [formatedNumber, isValid] });
@@ -101,19 +101,35 @@ function Form({ setFormValidated }) {
 
   const handleSubmit = () => {
     let formValidated = true;
+    let cardData = {
+      cardHolder: ["", null],
+      cardNumber: ["", null],
+      cardMonth: ["MM", null],
+      cardYear: ["YY", null],
+      cardCvc: ["", null],
+    };
+
     // Validar que el CardHolder no este vacío
+    if (formData.cardHolder[0].length < 3) {
+      cardData.cardHolder = [formData.cardHolder[0], false];
+      formValidated = false;
+    }
+
     // Validar que el número de la tarjeta sea correcto
+    const removeSpaces = formData.cardNumber[0].replace(/\s/g, "");
+    const isValid = number(Number(removeSpaces)).isPotentiallyValid;
+
     // Validar que la fecha de vencimiento no se encuentre en blanco
     // Validar que la fecha de vencimiento sea mayor que la actual
+
     // Validar que el CVC tenga 3 números, si no es así, el formulario se invalida
     // y se establece en el estado que el CVC es false
     if (formData.cardCvc[0].length < 3) {
-      setFormData({
-        ...formData,
-        cardCvc: [formData.cardCvc[0], false],
-      });
+      cardData.cardCvc = [formData.cardCvc[0], false];
       formValidated = false;
     }
+
+    setFormData(cardData);
 
     if (formValidated === true) {
       setFormValidated(true);
