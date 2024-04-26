@@ -110,12 +110,14 @@ function Form({ setFormValidated }) {
     };
 
     // Validar que el CardHolder no este vacío
+    cardData.cardHolder = formData.cardHolder;
     if (formData.cardHolder[0].length < 3) {
       cardData.cardHolder = [formData.cardHolder[0], false];
       formValidated = false;
     }
 
     // Validar que el número de la tarjeta sea correcto
+    cardData.cardNumber = formData.cardNumber;
     const removeSpaces = formData.cardNumber[0].replace(/\s/g, "");
     const isValid = number(Number(removeSpaces)).isValid;
     if (isValid === false) {
@@ -128,6 +130,7 @@ function Form({ setFormValidated }) {
 
     // Validar que el CVC tenga 3 números, si no es así, el formulario se invalida
     // y se establece en el estado que el CVC es false
+    cardData.cardCvc = formData.cardCvc;
     if (formData.cardCvc[0].length < 3) {
       cardData.cardCvc = [formData.cardCvc[0], false];
       formValidated = false;
