@@ -5,6 +5,7 @@
 
   --white: hsl(0, 0%, 100%);
   --deep-violet: hsl(278, 68%, 11%);
+  --deep-violet-quarter: hsla(278, 68%, 11%, 25%);
   --deep-violet-transparent: hsl(279, 34%, 27%);
   --light-grey: hsl(278, 3%, 87%);
   --purplish-grey: hsl(278, 6%, 55%);

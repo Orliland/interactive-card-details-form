@@ -54,8 +54,8 @@ function Form() {
   const [formData, setFormData] = useState({
     cardHolder: "",
     cardNumber: ["", null],
-    cardMonth: "",
-    cardYear: "",
+    cardMonth: "MM",
+    cardYear: "YY",
     cardCvc: "",
   });
 
@@ -79,6 +79,14 @@ function Form() {
     setFormData({ ...formData, cardCvc: removeLetters(e.target.value) });
   };
 
+  const handleOnSelectMonth = (e) => {
+    setFormData({ ...formData, cardMonth: e.target.value });
+  };
+
+  const handleOnSelectYear = (e) => {
+    setFormData({ ...formData, cardYear: e.target.value });
+  };
+
   return (
     <form className="form">
       <CardholderInput
@@ -90,7 +98,11 @@ function Form() {
         onChange={handleCardNumberChange}
       />
       <div className="form__group">
-        {/* <CardDateInput value={formData} /> */}
+        <CardDateInput
+          value={formData}
+          onSelectMonth={handleOnSelectMonth}
+          onSelectYear={handleOnSelectYear}
+        />
         <CvcInput value={formData.cardCvc} onChange={handleCardCvcChange} />
       </div>
 
