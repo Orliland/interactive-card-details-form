@@ -54,7 +54,7 @@ export function CardDateInput({ value, onSelectMonth, onSelectYear }) {
       <div className="form__date">
         <select
           className={
-            value.cardMonth === "MM" ? "input input--placeholder" : "input"
+            value.cardMonth[0] === "MM" ? "input input--placeholder" : "input"
           }
           defaultValue={value.cardMonth[0]}
           onChange={(e) => onSelectMonth(e)}
@@ -78,7 +78,7 @@ export function CardDateInput({ value, onSelectMonth, onSelectYear }) {
 
         <select
           className={
-            value.cardYear === "YY" ? "input input--placeholder" : "input"
+            value.cardYear[0] === "YY" ? "input input--placeholder" : "input"
           }
           defaultValue={value.cardYear[0]}
           onChange={(e) => onSelectYear(e)}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { number } from "card-validator";
+import { number, expirationDate } from "card-validator";
 import "./form.css";
 
 import Button from "../Button";
@@ -127,6 +127,29 @@ function Form({ setFormValidated }) {
 
     // Validar que la fecha de vencimiento no se encuentre en blanco
     // Validar que la fecha de vencimiento sea mayor que la actual
+    cardData.cardYear = formData.cardYear;
+    cardData.cardMonth = formData.cardMonth;
+    // Primero se comprueba si se selecciono tanto el mes como el año
+    // Después si se selecciono una fecha a partir de la actual
+    if (formData.cardMonth[0] === "MM" || formData.cardYear[0] === "YY") {
+      if (formData.cardMonth[0] == "MM") {
+        cardData.cardMonth = [formData.cardMonth[0], false];
+      } else if (formData.cardYear[0] == "YY") {
+        cardData.cardYear = [formData.cardYear[0], false];
+      }
+      formValidated = false;
+    } else {
+      const isValidDate = expirationDate(
+        formData.cardMonth[0] + formData.cardYear[0]
+      ).isValid;
+      console.log(isValidDate);
+      if (!isValidDate) {
+        cardData.cardYear = [formData.cardYear[0], false];
+        formValidated = false;
+      } else {
+        cardData.cardYear = [formData.cardYear[0], true];
+      }
+    }
 
     // Validar que el CVC tenga 3 números, si no es así, el formulario se invalida
     // y se establece en el estado que el CVC es false
