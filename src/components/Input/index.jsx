@@ -120,7 +120,7 @@ export function CvcInput({ value, onChange }) {
         value={value[0]}
         onChange={(e) => onChange(e)}
       />
-      {value[1] === false && <LabelAlert>Can’t be blank</LabelAlert>}
+      {value[1] === false && <LabelAlert>Wrong input</LabelAlert>}
     </Label>
   );
 }

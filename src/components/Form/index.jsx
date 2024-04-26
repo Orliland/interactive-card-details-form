@@ -50,7 +50,7 @@ function removeNotLetters([...value]) {
   return formatedName;
 }
 
-function Form() {
+function Form({ setFormValidated }) {
   // TODO: Agregar indice al acceder a los valores de cada estado
   // TODO: agregar función que active o desactive el true o false
   // TODO: en caso de que sea false, mostrar un mensaje de error
@@ -99,7 +99,26 @@ function Form() {
     setFormData({ ...formData, cardYear: [e.target.value, true] });
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    let formValidated = true;
+    // Validar que el CardHolder no este vacío
+    // Validar que el número de la tarjeta sea correcto
+    // Validar que la fecha de vencimiento no se encuentre en blanco
+    // Validar que la fecha de vencimiento sea mayor que la actual
+    // Validar que el CVC tenga 3 números, si no es así, el formulario se invalida
+    // y se establece en el estado que el CVC es false
+    if (formData.cardCvc[0].length < 3) {
+      setFormData({
+        ...formData,
+        cardCvc: [formData.cardCvc[0], false],
+      });
+      formValidated = false;
+    }
+
+    if (formValidated === true) {
+      setFormValidated(true);
+    }
+  };
 
   return (
     <form

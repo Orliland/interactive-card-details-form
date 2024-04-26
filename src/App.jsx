@@ -17,7 +17,11 @@ function App() {
         </div>
       </section>
       <section className="section section--body">
-        {formValidated ? <Modal /> : <Form />}
+        {formValidated ? (
+          <Modal />
+        ) : (
+          <Form setFormValidated={setFormValidated} />
+        )}
       </section>
     </main>
   );
