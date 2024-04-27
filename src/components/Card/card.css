@@ -62,7 +62,8 @@
     calc((((100vw - 3.2rem) * 0.8338) - 4rem) * 0.09),
     3.7rem
   );
-  letter-spacing: 5.5%;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04rem;
 }
 
 .card__holder {
@@ -127,10 +128,23 @@
   }
 
   .card__number {
+    letter-spacing: 0.34rem;
     font-size: clamp(
       8px,
       calc((((100vw - 3.2rem) * 0.8338) - 6.4rem) * 0.09),
-      2.78rem
+      3rem
     );
+  }
+}
+
+@media (min-width: 1440px) {
+  .card__number {
+    font-size: clamp(
+      8px,
+      calc((((100vw - 3.2rem) * 0.8338) - 4rem) * 0.09),
+      2.8rem
+    );
+
+    letter-spacing: 0.04rem;
   }
 }
