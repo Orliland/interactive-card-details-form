@@ -18,7 +18,7 @@ export function CardholderInput({ value, onChange }) {
     <Label label="CARDHOLDER NAME">
       <input
         type="text"
-        className="input"
+        className={`input ${value[1] == false && "input--invalid"}`}
         placeholder="e.g. Jane Appleseed"
         minLength={3}
         maxLength={30}
@@ -35,7 +35,7 @@ export function CardNumberInput({ value, onChange }) {
     <Label label="CARD NUMBER">
       <input
         type="text"
-        className="input"
+        className={`input ${value[1] == false && "input--invalid"}`}
         placeholder="e.g. 1234 5678 9123 0000"
         maxLength={19}
         value={value[0]}
@@ -53,9 +53,9 @@ export function CardDateInput({ value, onSelectMonth, onSelectYear }) {
     <Label label="Exp. Date (MM/YY)">
       <div className="form__date">
         <select
-          className={
-            value.cardMonth[0] === "MM" ? "input input--placeholder" : "input"
-          }
+          className={`input ${
+            value.cardMonth[0] === "MM" && "input--placeholder"
+          } ${value.cardMonth[1] == false && "input--invalid"}`}
           defaultValue={value.cardMonth[0]}
           onChange={(e) => onSelectMonth(e)}
         >
@@ -77,9 +77,9 @@ export function CardDateInput({ value, onSelectMonth, onSelectYear }) {
         </select>
 
         <select
-          className={
-            value.cardYear[0] === "YY" ? "input input--placeholder" : "input"
-          }
+          className={`input ${
+            value.cardYear[0] === "YY" && "input--placeholder"
+          } ${value.cardYear[1] == false && "input--invalid"}`}
           defaultValue={value.cardYear[0]}
           onChange={(e) => onSelectYear(e)}
         >
@@ -114,7 +114,7 @@ export function CvcInput({ value, onChange }) {
     <Label label="CVC">
       <input
         type="text"
-        className="input"
+        className={`input ${value[1] == false && "input--invalid"}`}
         placeholder="e.g. 123"
         maxLength={3}
         value={value[0]}

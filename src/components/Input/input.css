@@ -45,7 +45,6 @@
   font: var(--heading-l);
 }
 
-/* Añade la gradiente al border */
 .input:focus {
   outline: none;
   background: linear-gradient(white, white) padding-box,
@@ -54,4 +53,6 @@
   border: 0.1rem solid transparent;
 }
 
-/* Añadir clase que marque que el elemento tiene un error */
+.input--invalid {
+  border: 0.1rem solid var(--red);
+}
