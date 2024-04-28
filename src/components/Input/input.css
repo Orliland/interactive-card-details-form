@@ -39,6 +39,12 @@
   opacity: 0.25;
 }
 
+.input--placeholder {
+  color: var(--deep-violet-quarter);
+
+  font: var(--heading-l);
+}
+
 /* Añade la gradiente al border */
 .input:focus {
   outline: none;
